@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if borrowed %}
+{{ borrowed[0] }}
+{% else %}
+Flask App
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% if borrowed %}
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Book Title</td>
+            <td>Date Borrowed</td>
+            <td>Date due</td>
+            <td>Days of Loan</td>
+        </tr>
+    </thead>
+        <tr>
+           <td>{{ borrowed [0]}}</td>
+           <td> {{ borrowed [1] }}</td>
+           <td> {{ borrowed [2] }}</td>
+           <td> {{ borrowed [3] }} </td>
+           <td>{{ borrowed [4] }}</td>
+        </tr>
+    </table>
+    {% else %}
+    <h3>
+        Invalid Borrowed
+    </h3>
+    {% endif %}
+</div>
+
+
+    <a href="{{ url_for('index') }}">Back</a>
+
+{% endblock %}

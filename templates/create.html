@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+    {% block content %}
+    <form action="#" method="POST">
+        <table>
+        <tr>
+            <th>Book title</th>
+            <td><input type="text" name="book_title"></td>
+        </tr>
+        <tr>
+            <th>Date Borrowed</th>
+            <td><input type="date" name="pinjam"></td>
+        </tr>
+        <tr>
+            <th>Date due</th>
+            <td><input type="date" name="pengembalian"></td>
+        </tr>
+        <tr>
+            <th>Days of loan</th>
+            <td><input type="int" name="total hari"></td>
+        </tr>
+    </table>
+
+     <button type="submit" value="submit">Submit</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+        {% endblock %}   
+    

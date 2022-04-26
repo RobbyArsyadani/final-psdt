@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+    {% block content %}
+    {% if session and session.get ('name') %}
+    <div>
+    <h5> Welcome {{session ['name'] }}</h5>
+    </div>
+    {% endif %}
+    <div class="row">
+    {% if borrowed %}
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <td width="30%">peminjam</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        {% for (borrowed_id, name) in borrowed %}
+        <tr>
+            <td>
+                <h4>{{ name }}</h4>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="{{ url_for('read',borrowed_id=borrowed_id  ) }}">details</a>
+                {% if session and session.get('name') %}
+                <a class="btn btn-warning" href="{{ url_for('edit', borrowed_id=borrowed_id) }}">Edit</a>
+                <button type="button" class="btn btn-danger" onclick="deleteArticle( {{borrowed_id}} ,  {{'\"%s\"' % name}} )">Delete</button> 
+            {% endif %}
+            </td>
+        </tr>      
+        {%endfor%}
+        </table>
+        {% else %}
+        <h1>No one borrows books</h1>
+        {% endif %}
+    
+        {% if session and session.get('name') %}
+        <div>
+            <a  href="{{ url_for('create') }}">Create</a>
+        </div>
+        {% endif %}
+
+    </div> 
+    {% endblock %}   

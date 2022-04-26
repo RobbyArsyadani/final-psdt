@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+List
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <th>BookID</th>
+            <th>Book Title</th>
+            <th>Author</th>
+        </tr>
+        {% for row in rv %}
+        <tr>
+           {% for cell in row %}
+           <td>{{ cell }}</td>
+           {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}

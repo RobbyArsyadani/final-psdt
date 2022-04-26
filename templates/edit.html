@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<form action="/edit/{{borrowed[0]}}" method="POST">
+    <table>
+        <tr>
+            <th>Book title</th>
+            <td><input type="text" name="book_title" value="{{borrowed[1]}}"></td>
+        </tr>
+        <tr>
+            <th>Date Borrowed</th>
+            <td><input type="date" name="pinjam" value="{{borrowed [2]}}"></td>
+        </tr>
+        <tr>
+            <th>Date due</th>
+            <td><input type="date" name="pengembalian" value="{{ borrowed [3]}}"></td>
+        </tr>
+        <tr>
+            <th>Days of loan</th>
+            <td><input type="int" name="total hari" value="{{ borrowed [4] }}"></td>
+        </tr>
+    </table>
+
+     <button type="submit" value="submit">Update</button>
+</form>
+
+
+{%endblock%}

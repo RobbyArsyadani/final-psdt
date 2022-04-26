@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div>{{ message }}</div>
+{% endfor %}
+    <form action="#" method="POST"> 
+        <div class="mb-3">
+          <label for="exampleInputusername" class="form-label">Name</label>
+          <input type="text" class="form-control" id="username" name = "name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputusername1" class="form-label">Address</label>
+          <input type="text" class="form-control" id="exampleInputAddress1" name = "address">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPhone1" class="form-label">Phone Number</label>
+          <input type="number" class="form-control" id="exampleInputPhone1" name = "phonenum" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name = "password"  pattern="(?=.[a-z])(?=.*[A-Z]).{5,}" title="Minimum 5 Characters and Minimum 1 Uppercase" required>
+        </div>
+        <button type="submit" class="btn btn-primary" value = "Register">Submit</button>
+      </form>
+{% endblock %}
